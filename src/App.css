@@ -1,38 +1,91 @@
-.App {
+.game-container {
+  margin-top: 16px;
+  margin-left: 16px;
+  border: solid;
+  padding: 20px 20px 20px 20px;
+  width: fit-content;
+}
+
+.app-container {
+  background-color: #1c1f24;
+}
+
+.word-list {
+  border: solid;
+  border-radius: 4px;
+  border-color: #5e506e;
+  margin-top: 16px;
+  min-height: 100px;
+  width: 260px;
+  padding-left: 8px;
+}
+
+.word {
+  margin-top: 8px;
+}
+
+.score-container {
+  margin-left: 16px
+}
+
+.feedback {
+  min-height: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.word-input {
+  padding: 6px;
+  background-color: #cacccf;
+  border: solid 1px;
+  font-size: 18px;
+  width: 180px;
+}
+
+.letter-tile {
+  display: inline-block;
   text-align: center;
+  border: solid;
+  border-radius: 6px;
+  padding: 2px 2px 2px 2px;
+  margin-right: 6px;
+  width: 40px;
+  font-size: 36px;
+  font-weight: bold;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p,
+span {
+  color: #cacccf;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  transition-duration: 0.4s;
+  background-color: #4a1488;
+  color: #cacccf;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-weight: bolder;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button:hover {
+  background-color: #783bbd;
+  color: #cacccf;
 }
 
-.App-link {
-  color: #61dafb;
+.center {
+  transform: translate(40%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.block {
+  display: block;
 }
