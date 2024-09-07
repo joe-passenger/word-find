@@ -132,7 +132,7 @@ export const App = () => {
   const handleWordSubmission = async (word) => {
     if (await isNewWordValid(word)) {
       setScoredWords([...scoredWords, currentWord.toUpperCase()]);
-      setCurrentWord("");git 
+      setCurrentWord("");
       showFeedbackShort("Nice!");
     }
   };
