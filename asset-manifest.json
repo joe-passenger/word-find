@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/word-find/static/css/main.6dfd424c.css",
-    "main.js": "/word-find/static/js/main.90a8c986.js",
+    "main.js": "/word-find/static/js/main.8af6e006.js",
     "static/js/453.ee8fa675.chunk.js": "/word-find/static/js/453.ee8fa675.chunk.js",
     "static/media/logo.svg": "/word-find/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/word-find/index.html",
     "main.6dfd424c.css.map": "/word-find/static/css/main.6dfd424c.css.map",
-    "main.90a8c986.js.map": "/word-find/static/js/main.90a8c986.js.map",
+    "main.8af6e006.js.map": "/word-find/static/js/main.8af6e006.js.map",
     "453.ee8fa675.chunk.js.map": "/word-find/static/js/453.ee8fa675.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6dfd424c.css",
-    "static/js/main.90a8c986.js"
+    "static/js/main.8af6e006.js"
   ]
 }
