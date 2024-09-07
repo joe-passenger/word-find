@@ -107,7 +107,7 @@ export const App = () => {
    * Returns true if the player already scored for this word, false otherwise.
    */
   const wasWordAlreadyUsed = (word) => {
-    return scoredWords.includes(word);
+    return scoredWords.includes(word.toUpperCase());
   };
 
   /**
