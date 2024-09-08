@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
 
@@ -15,11 +14,13 @@ export const App = () => {
   const [scoredWords, setScoredWords] = useState([]);
   /** Message to display to the player */
   const [feedback, setFeedback] = useState("");
+  const [feedbackTimerId, setFeedbackTimerId] = useState("");
 
   const DEFAULT_LETTERS_IN_GAME = 5;
   const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const VOWELS = "AEIOU";
 
+  /** Used to track high score in localStorage */
   const HIGH_SCORE_PROPERTY = "high score";
 
   useEffect(() => {
@@ -73,7 +74,7 @@ export const App = () => {
     try {
       const response = await fetch(url);
       if (!response.ok) {
-        // word not found
+        // Response from API is a 404 if word cannot be found.
         return false;
       }
 
@@ -116,17 +117,18 @@ export const App = () => {
    * Returns true if valid, false otherwise.
    */
   const isNewWordValid = async (word) => {
+    let isValid = true;
     if (wasWordAlreadyUsed(word)) {
       showFeedbackShort("Word already used!");
-      return false;
+      isValid = false;
     } else if (!wordContainsOnlyValidLetters(word)) {
       showFeedbackShort("Word contains invalid letter(s)!");
-      return false;
+      isValid = false;
     } else if (!(await isValidEnglishWord(word))) {
       showFeedbackShort("Word not recognized!");
-      return false;
+      isValid = false;
     }
-    return true;
+    return isValid;
   };
 
   const handleWordSubmission = async (word) => {
@@ -139,21 +141,22 @@ export const App = () => {
 
   /**
    * Displays a message on the screen for two seconds.
-   * TODO - if function is called a second time before first message is cleared, the existing timeout should be cleared
    */
   const showFeedbackShort = (message) => {
     const feedbackDisplayLength = 2_000; // 2 seconds
     setFeedback(message);
-    setTimeout(() => {
+    clearTimeout(feedbackTimerId);
+    const timerId = setTimeout(() => {
       setFeedback("");
     }, feedbackDisplayLength);
+    setFeedbackTimerId(timerId);
   };
 
   const endGame = () => {
     const highScore = localStorage.getItem(HIGH_SCORE_PROPERTY);
     const currentGameScore = scoredWords.length;
     if (currentGameScore > highScore) {
-      localStorage.setItem(HIGH_SCORE_PROPERTY, scoredWords.length);
+      localStorage.setItem(HIGH_SCORE_PROPERTY, currentGameScore);
     }
     window.location.reload();
   };
@@ -169,7 +172,7 @@ export const App = () => {
 
   return (
     <div className="game-container">
-      <button className="center" onClick={() => endGame()}>
+      <button id="new-game-button" onClick={() => endGame()}>
         Give Up (New Game)
       </button>
 
@@ -205,8 +208,8 @@ export const App = () => {
         </button>
         <p className="feedback">{feedback}</p>
         <div className="word-list">
-          {scoredWords.map((validWord) => {
-            return <p className="word">{validWord}</p>;
+          {scoredWords.map((word) => {
+            return <p className="word">{word}</p>;
           })}
         </div>
       </div>

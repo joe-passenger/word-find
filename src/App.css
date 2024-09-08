@@ -1,3 +1,7 @@
+.app-container {
+  background-color: #1c1f24;
+}
+
 .game-container {
   margin-top: 16px;
   margin-left: 16px;
@@ -6,8 +10,8 @@
   width: fit-content;
 }
 
-.app-container {
-  background-color: #1c1f24;
+.score-container {
+  margin-left: 16px
 }
 
 .word-list {
@@ -24,22 +28,18 @@
   margin-top: 8px;
 }
 
-.score-container {
-  margin-left: 16px
-}
-
-.feedback {
-  min-height: 20px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-}
-
 .word-input {
   padding: 6px;
   background-color: #cacccf;
   border: solid 1px;
   font-size: 18px;
   width: 180px;
+}
+
+.feedback {
+  min-height: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .letter-tile {
@@ -74,10 +74,6 @@ button:hover {
   color: #cacccf;
 }
 
-.center {
-  transform: translate(40%);
-}
-
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -88,4 +84,8 @@ body {
 
 .block {
   display: block;
+}
+
+#new-game-button {
+  transform: translate(40%);
 }
